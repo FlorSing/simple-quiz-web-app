@@ -11,10 +11,11 @@ Your current score as well as the highest scores will be stored.
 
 Here is a sample view of the application:
 
-"C:\Users\fpsin\bootcamp\edxbootcamp\module 06\04-code-quiz-lesson\challenge\assets\08-web-apis-challenge-demo.gif"
 
 
-06-web-apis-module\04-code-quiz-lesson\challenge\assets\08-web-apis-challenge-demo.gif
+![08-web-apis-challenge-demo](https://user-images.githubusercontent.com/118206899/213149911-d30a2aff-f9b4-430c-b97a-beb6c8fe28ff.gif)
+
+
 
 
 
