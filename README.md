@@ -21,6 +21,8 @@ Here is a sample view of the application:
 
 The GitHub repository can be found below:
 
+https://github.com/FlorSing/simple-quiz-web-app
+
 
 
 The link to the web page deployment is:
