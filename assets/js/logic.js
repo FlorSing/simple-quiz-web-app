@@ -1,5 +1,5 @@
 var timeEl = document.getElementById('time');
-var startButton = document.querySelector("#start");
+let startButton = document.querySelector("#start");
 
 //timer
 function countdown() {
@@ -18,7 +18,10 @@ function countdown() {
     };
 
 startButton.addEventListener("click", function(){
+//    event.preventDefault();
     countdown();    
       
   }
 );
+
+
