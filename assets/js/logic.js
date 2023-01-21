@@ -70,22 +70,27 @@ startButton.addEventListener('click', function (){
 )    
   
 
+//determine chosen answer button
+function checkAnswer() {
+choices.addEventListener("click", function(event) {
+    var element = event.target;
+    var index = element.getAttribute("data-index");
+    var answer = element.textContent;
+    console.log(answer);
 
-selectButton.addEventListener("click", function(event) {
-    var index = selectButton.getAttribute("data-index");
+    //check if chosen button is the correct answer
 
-       console.log(index);
+    if (answer === answers[x]){
+        console.log('correct');
+    }
+    else (console.log('wrong'));
+
        }
-   
-            
     )    
 
-    
-
-function checkAnswer() {
 
     
-};
+}
 
 localStorage.setItem('score',score);
     
