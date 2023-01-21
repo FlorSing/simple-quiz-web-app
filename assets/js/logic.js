@@ -27,12 +27,12 @@ function countdown() {
     var timeInterval = setInterval(function () {
       timeLeft--;
       timeEl.textContent = timeLeft;
-    if (timeLeft >=0) {   
-      if (solved && timeLeft >0){
-        clearInterval(timeInterval);
-        logScore();
-        }
-      }
+    // if (timeLeft >=0) {   
+    //   if (solved && timeLeft >0){
+    //     clearInterval(timeInterval);
+    //     logScore();
+    //     }
+    //   }
     
     if(timeLeft === 0){
         clearInterval(timeInterval);
@@ -54,37 +54,53 @@ startButton.addEventListener('click', function (){
   displayQuestions();
   listChoices();
   checkAnswer();
-  logScore();
+  
 
     } 
     );
   
+// let questionNo = 0;
 
-//display questions
-function displayQuestions() {
-for (i=0; i<questionsList.length; i++){
-    questionTitle.textContent = questionsList[i][0];
-};
+// //display questions
+// function displayQuestions() {
+//   x = questionNo++;
+// // for (i=0; i<questionsList.length; i++){
+// //     questionTitle.textContent = questionsList[i][0];
+// // };
+//   questionTitle.textContent = questionsList[x][0];
 
-};
+//   return x;
 
-//list multiple choice
+// };
+// console.log(x);
 
-function listChoices(){
+// //list multiple choice
 
-  for (i=0; i<questionsList.length; i++){
-        for (j=0; j<questionsList[i][1].length; j++)
-  //          console.log(questionsList[i][1][j]);
+// function listChoices(){
 
-            var selectButton = document.createElement("button");
-            selectButton.textContent = questionsList[i][1][j]
-            choices.appendChild(selectButton);  
-        };
+//   // for (i=0; i<questionsList.length; i++){
+//   //       for (j=0; j<questionsList[i][1].length; j++)
+//   // //          console.log(questionsList[i][1][j]);
+
+//   //           var selectButton = document.createElement("button");
+//   //           selectButton.textContent = questionsList[i][1][j]
+//   //           choices.appendChild(selectButton);  
+//   //       };
+
+//       var selectButton = document.createElement("button");
+//       selectButton.textContent = questionsList[x][1][x]
+//       choices.appendChild(selectButton); 
+
     
-    };
+//     };
+
+
+
+
         
 //check answer
 function checkAnswer() {
+
 
 }
 
