@@ -4,20 +4,11 @@ let startButton = document.querySelector("#start");
 let questionsShow = document.querySelector("#questions");
 let selectButton = document.createElement("button");
 
-let questionsList = [
-    ["What is used to style a webpage?", ['A: JavaScript', 'B: CSS', 'C: Python']],
-    ["What is used to construct the elements in a webpage?", ['A: JavaScript', 'B: CSS', 'C: HTML']],
-    ["What is a lightweight programming language used to create webpage interactivity?", ['A: JavaScript', 'B: Python', 'C: Ruby']],
-    ["What is a free, open source version control system?", ['A: Gitlab', 'B: GitHub', 'C: VisualCode']],
-    ["What is a text format used for storing and transporting data?", ['A: JSON', 'B: XML', 'C: SQL']],
-    ["What can extend the functionality of the browser?", ['A: Tableau', 'B: AJAX', 'C: Web API']],
-    ["What is a special variable that can hold more than one value?", ['A: JS Arrays', 'B: JS Nodes', 'C: Dictionary']],
-];
 
-//to start the page
+//setup local storage
+
 function init(){
-    showQuiz();
-    countdown();
+
 }
 
 //show quiz first
@@ -29,7 +20,7 @@ function showQuiz() {
     }; 
 };
 
-//start quiz and timer when start 
+//timer when start 
 var timeEl = document.getElementById('time');
 function countdown() {
     var timeLeft = 30;
@@ -53,27 +44,35 @@ function countdown() {
 
 
 
+//start quiz
 
 startButton.addEventListener('click', function (){
 //    event.preventDefault();
-    
 
-    countdown();
+  showQuiz();
+  countdown();
+  displayQuestions();
+  listChoices();
+  checkAnswer();
+  logScore();
 
     } 
     );
+  
 
-
-
+//display questions
+function displayQuestions() {
 for (i=0; i<questionsList.length; i++){
     questionTitle.textContent = questionsList[i][0];
 };
 
+};
+
+//list multiple choice
 
 function listChoices(){
 
-
-    for (i=0; i<questionsList.length; i++){
+  for (i=0; i<questionsList.length; i++){
         for (j=0; j<questionsList[i][1].length; j++)
   //          console.log(questionsList[i][1][j]);
 
@@ -84,30 +83,12 @@ function listChoices(){
     
     };
         
+//check answer
+function checkAnswer() {
 
-listChoices();
+}
 
-//timer
-
-var timeEl = document.getElementById('time');
-function countdown() {
-    var timeLeft = 11;
-  
-    var timeInterval = setInterval(function () {
-      timeLeft--;
-      timeEl.textContent = timeLeft
-  
-      if(timeLeft == 0){
-        clearInterval(timeInterval);
-    }
-    }, 1000);
-    };
-
-    selectButton.addEventListener('click', function(){
-        clearInterval(timeInterval);
-    })
-
-    ;
+//log score
 
 
     // var mysound = new Audio("./assets/sfx/correct.wav");
