@@ -1,69 +1,68 @@
-let questionTitle = document.querySelector("#question-title");
-let choices = document.querySelector("#choices");
-let startButton = document.querySelector("#start");
-let questionsShow = document.querySelector("#questions");
-let selectButton = document.createElement("button");
-
-let question = {1: ["What is used to style a webpage?", [' JavaScript', ' CSS', ' HTML']]};
-
-
-
-var mode = 'hide';
-
-startButton.addEventListener('click', function (){
-//    event.preventDefault();
-    if (mode = 'hide'){
-        mode = 'show';
-        questionsShow.setAttribute('class', 'show');
-    };
-
-    countdown();
-
-    } 
-    );
-
-
-
-
-questionTitle.textContent = question1[0];
-
-function listChoices(){
-
-    for (i=0;i<question1[1].length;i++){
-
-        //var addListElement = document.createElement("li");
-        // addListElement.textContent = question1[1][i];
-        // choices.appendChild(addListElement);
-
-        var selectButton = document.createElement("button");
-        selectButton.textContent = question1[1][i];
-   //     selectButton.appendChild(selectButton);
-        choices.appendChild(selectButton);  
-};
+let questions = {
+1: ["What is used to style a webpage?", ['A: JavaScript', 'B: CSS', 'C: Python']],
+2: ["What is used to construct the elements in a webpage?", ['A: JavaScript', 'B: CSS', 'C: HTML']],
+3: ["What is a lightweight programming language used to create webpage interactivity?", ['A: JavaScript', 'B: Python', 'C: Ruby']],
+4: ["What is a free, open source version control system?", ['A: Gitlab', 'B: GitHub', 'C: VisualCode']],
+5: ["What is a text format used for storing and transporting data?", ['A: JSON', 'B: XML', 'C: SQL']],
+6: ["What can extend the functionality of the browser?", ['A: Tableau', 'B: AJAX', 'C: Web API']],
+7: ["What is a special variable that can hold more than one value?", ['A: JS Arrays', 'B: JS Nodes', 'C: Dictionary']],
 };
 
-listChoices();
+let answers = [
+    'B: CSS',
+    'C: HTML',
+    'A: JavaScript', 
+    'B: GitHub',
+    'A: JSON', 
+    'C: Web API',
+    'A: JS Arrays', 
+];
+    
+questionString = JSON.stringify(questions);
+questionParse = JSON.parse(questionString);
 
-//timer
+// console.log(questionParse[1][0]);
+// console.log(questionParse[1][1][1]);
 
-var timeEl = document.getElementById('time');
-function countdown() {
-    var timeLeft = 11;
-  
-    var timeInterval = setInterval(function () {
-      timeLeft--;
-      timeEl.textContent = timeLeft
-  
-      if(timeLeft == 0){
-        clearInterval(timeInterval);
-    }
-    }, 1000);
-
-    selectButton.addEventListener('click', function(){
-        clearInterval(timeInterval);
-    })
-
-    };
+// let answer1 = questionParse[1][1][1];
+// let answer = answers[0];
+// console.log(answer1 == answer);
 
 
 
+let questionsList = [
+    ["What is used to style a webpage?", ['A: JavaScript', 'B: CSS', 'C: Python']],
+    ["What is used to construct the elements in a webpage?", ['A: JavaScript', 'B: CSS', 'C: HTML']],
+    ["What is a lightweight programming language used to create webpage interactivity?", ['A: JavaScript', 'B: Python', 'C: Ruby']],
+    ["What is a free, open source version control system?", ['A: Gitlab', 'B: GitHub', 'C: VisualCode']],
+    ["What is a text format used for storing and transporting data?", ['A: JSON', 'B: XML', 'C: SQL']],
+    ["What can extend the functionality of the browser?", ['A: Tableau', 'B: AJAX', 'C: Web API']],
+    ["What is a special variable that can hold more than one value?", ['A: JS Arrays', 'B: JS Nodes', 'C: Dictionary']],
+];
+
+
+console.log(questionsList[0][1]);
+console.log(questionsList[0][1][1]);
+
+for (i=0; i<questionsList.length; i++){
+        console.log(questionsList[i][0]);
+};
+
+for (i=0; i<questionsList.length; i++){
+    for (j=0; j<questionsList[i][1].length; j++)
+        console.log(questionsList[i][1][j]);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+    // var mysound = new Audio("../sfx/correct.wav");
+    // mysound.play();
