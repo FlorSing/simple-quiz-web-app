@@ -1,4 +1,6 @@
 
+
+
 const questionsList = [
     ["What is used to style a webpage?", ['A: JavaScript', 'B: CSS', 'C: Python']],
     ["What is used to construct the elements in a webpage?", ['A: XML', 'B: SQL', 'C: HTML']],
@@ -23,26 +25,24 @@ const answers = [
 questionNo = localStorage.getItem('question no');
 x = questionNo;
 
+//need to display questions and multiple choice answers in sequence after every item
+
+
+
 //display questions
 function displayQuestions() {
-  
   questionTitle.textContent = questionsList[x][0];
-
 };
 
+//display multiple choice answers
 function listChoices(){
-
   for (i=0; i<questionsList[x][1].length; i++){
-
       var selectButton = document.createElement("button");
       selectButton.textContent = questionsList[x][1][i]
       selectButton.setAttribute("data-index", i);
       selectButton.setAttribute("id", "ansButton");
       choices.appendChild(selectButton); 
     };
-
-    
-   
 };
 
 

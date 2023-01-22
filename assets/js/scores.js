@@ -2,8 +2,10 @@
 var clearScore = document.querySelector("#clear");
 var scoreElement =  document.getElementById('highscores');
 var lastScore = localStorage.getItem('score');
+var initials = localStorage.getItem('initials');
 
-var scoresList = [lastScore];
+var scoresListEntry = [initials+": "+lastScore]
+var scoresList = [scoresListEntry];
 
 function logScore(){
 

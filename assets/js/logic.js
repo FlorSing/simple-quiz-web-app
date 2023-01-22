@@ -12,14 +12,15 @@ let submitInitials = document.querySelector("#submit");
 //var doneMode = 'hide';
 
 var timeEl = document.getElementById('time');
-var timeLeft = 30;
+var timeLeft = 10;
     
-var questionNo;
-var x = questionNo;
+var questionNo=0;
+//var x = questionNo;
 
-questionNo = localStorage.getItem('question no');
+//questionNo = localStorage.getItem('question no');
 
 //var x = 0;
+
 var score = 0;
 
 //var quizMode = 'hide';
@@ -80,7 +81,7 @@ function countdown() {
         clearInterval(timeInterval);
     }
 
-    if (timeLeft < 0){
+    if (timeLeft === 0){
         clearInterval(timeInterval);
         allDone();
     }
@@ -88,12 +89,7 @@ function countdown() {
     };
 
 
-function logScore() {
 
-
-}
-
-    
 
 function wrongAnswer() {
     timeLeft-10
@@ -110,9 +106,12 @@ function correctAnswer(){
     localStorage.setItem('score',score);
     questionNo++
     localStorage.setItem('question no', questionNo);
-    hideQuiz();
+    //hideQuiz();
+    questionTitle.textContent = "";
+    choices.children[0].remove();
+    choices.children[0].remove();
+    choices.children[0].remove();
 };
-
 
 //determine chosen answer button
 function checkAnswer() {
@@ -122,25 +121,29 @@ function checkAnswer() {
     var answer = element.textContent;
 
     //check if chosen button is the correct answer
-
     if (answer === answers[x]){
         correctAnswer();
     }
     else wrongAnswer();
-       }
+    }
     )    
-}
+}   
 //console.log(answer);
 
     
 function allDone() {
 //    doneMode = "show";
-    finalScore.textContent = localStorage.getItem(score);
+    var lastScore = localStorage.getItem('score');
+
+    finalScore.textContent = lastScore;
+//    finalScore.appendChild = localStorage.getItem(score);
+
     quizDone.setAttribute('class', 'show');
 
     submitInitials.addEventListener("click", function(){
-        setInitials = askInitials.textContent;
-        scoresList.push(setInitials+score);
+        var setInitials = askInitials.value.trim();
+        initials = localStorage.setItem('initials', setInitials);
+        
     })
 };
 
