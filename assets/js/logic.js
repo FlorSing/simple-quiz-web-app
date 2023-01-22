@@ -14,9 +14,9 @@ var x = questionNo;
 var score = 0;
 var mode = 'hide';
 
-function init(){
 
-}
+
+
 
 //show quiz first
 function showQuiz() {
@@ -28,13 +28,18 @@ function showQuiz() {
 
 function hideQuiz() {
     score++
+    localStorage.setItem('score',score);
     console.log(score);
     questionNo++
     console.log(questionNo);
+    localStorage.setItem('question no', questionNo);
     if (mode == 'show'){
         mode = 'hide';
         questionsShow.setAttribute('class', 'hide');
     }; 
+
+    startButton.disabled = false;
+    
 };
 
 //timer when start 
@@ -44,7 +49,7 @@ function countdown() {
       timeLeft--;
       timeEl.textContent = timeLeft;
     
-    if(timeLeft === 0){
+    if(timeLeft <= 0){
         clearInterval(timeInterval);
 
     }
@@ -55,19 +60,19 @@ function countdown() {
 
 
 //start quiz
-
-startButton.addEventListener('click', function (){
-
-  showQuiz();
-  countdown();
-  displayQuestions();
-  listChoices();
-  checkAnswer();
-  
-  startButton.disabled = true;
+    startButton.addEventListener('click', function (event){
+        event.preventDefault();
+        showQuiz();
+        countdown();
+        displayQuestions();
+        listChoices();
+        checkAnswer();
+        
+        startButton.disabled = true;
+        } 
+        )    
     
-} 
-)    
+
   
 function wrongAnswer() {
 
@@ -112,6 +117,5 @@ choices.addEventListener("click", function(event) {
     
 }
 //console.log(answer);
-localStorage.setItem('score',score);
 
     

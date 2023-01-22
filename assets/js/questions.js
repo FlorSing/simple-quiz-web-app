@@ -20,6 +20,8 @@ const answers = [
 ];
 
 
+questionNo = localStorage.getItem('question no');
+
 //display questions
 function displayQuestions() {
   
