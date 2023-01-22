@@ -10,7 +10,7 @@ var timeLeft = 30;
     
 var questionNo = 0;
 var x = questionNo;
-
+//var x = 0;
 var score = 0;
 var mode = 'hide';
 
@@ -29,9 +29,9 @@ function showQuiz() {
 function hideQuiz() {
     score++
     localStorage.setItem('score',score);
-    console.log(score);
-    questionNo++
-    console.log(questionNo);
+    console.log('score: ', score);
+     questionNo++
+     console.log('question no: ',questionNo);
     localStorage.setItem('question no', questionNo);
     if (mode == 'show'){
         mode = 'hide';
@@ -60,8 +60,20 @@ function countdown() {
 
 
 //start quiz
-    startButton.addEventListener('click', function (event){
-        event.preventDefault();
+
+
+    for (i=0;i<answers.length; i++){
+        starter();
+        questionNo++;
+        console.log('x =', x);
+    }
+
+    startButton.addEventListener("click", starter);
+
+function starter() {
+
+    // startButton.addEventListener('click', function (event){
+    //     event.preventDefault();
         showQuiz();
         countdown();
         displayQuestions();
@@ -71,7 +83,7 @@ function countdown() {
         startButton.disabled = true;
         } 
         )    
-    
+    }    
 
   
 function wrongAnswer() {
