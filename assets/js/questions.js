@@ -22,8 +22,9 @@ const answers = [
 ];
 
 
-questionNo = localStorage.getItem('question no');
-x = questionNo;
+//questionNo = localStorage.getItem('question no');
+var questionNo = 0
+var x = questionNo;
 
 //need to display questions and multiple choice answers in sequence after every item
 

@@ -9,12 +9,16 @@ let quizDone = document.querySelector("#end-screen");
 let askInitials = document.querySelector("#initials");
 let finalScore = document.querySelector("#final-score");
 let submitInitials = document.querySelector("#submit");
+
+let feedback = document.querySelector("#feedback");
+
 //var doneMode = 'hide';
 
 var timeEl = document.getElementById('time');
 var timeLeft = 10;
     
 var questionNo=0;
+//localStorage.setItem('question no', questionNo);
 //var x = questionNo;
 
 //questionNo = localStorage.getItem('question no');
@@ -105,7 +109,7 @@ function correctAnswer(){
     score++
     localStorage.setItem('score',score);
     questionNo++
-    localStorage.setItem('question no', questionNo);
+//    localStorage.setItem('question no', questionNo);
     //hideQuiz();
     questionTitle.textContent = "";
     choices.children[0].remove();
@@ -145,5 +149,9 @@ function allDone() {
         initials = localStorage.setItem('initials', setInitials);
         
     })
+
+    feedback.setAttribute('class', 'feeback show');
 };
+
+
 

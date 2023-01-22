@@ -4,8 +4,10 @@ var scoreElement =  document.getElementById('highscores');
 var lastScore = localStorage.getItem('score');
 var initials = localStorage.getItem('initials');
 
-var scoresListEntry = [initials+": "+lastScore]
-var scoresList = [scoresListEntry];
+var scoresList = [];
+var scoresListEntry = [initials+": "+lastScore];
+scoresList.push(scoresListEntry);
+
 
 function logScore(){
 
