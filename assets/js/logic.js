@@ -3,6 +3,7 @@ let choices = document.querySelector("#choices");
 let startButton = document.querySelector("#start");
 let questionsShow = document.querySelector("#questions");
 let selectButton = document.querySelector("button");
+let questionResult = document.querySelector("#questions");
 
 var timeEl = document.getElementById('time');
 var timeLeft = 30;
@@ -69,6 +70,33 @@ startButton.addEventListener('click', function (){
 } 
 )    
   
+function wrongAnswer() {
+
+    timeLeft - 10;
+
+    var message = document.createElement("div");
+    message.textContent = "Incorrect... please try again.";
+    message.setAttribute('style', 'font-style: italic');
+    questionResult.appendChild(message);
+    
+};
+
+
+function correctAnswer(){
+
+    score ++;
+    console.log(score);
+
+    hideQuiz();
+
+    questionNo++;
+    console.log(questionNo);
+
+    showQuiz();
+
+
+}
+
 
 //determine chosen answer button
 function checkAnswer() {
@@ -82,9 +110,9 @@ choices.addEventListener("click", function(event) {
 
     if (answer === answers[x]){
         console.log('correct');
+        hideQuiz();
     }
-    else (console.log('wrong'));
-
+    else wrongAnswer();
        }
     )    
 

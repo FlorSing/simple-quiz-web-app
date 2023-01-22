@@ -52,7 +52,3 @@ function listChoices(){
 
 
 
-
-
-    // var mysound = new Audio("../sfx/correct.wav");
-    // mysound.play();
