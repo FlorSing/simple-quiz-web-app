@@ -5,41 +5,68 @@ let questionsShow = document.querySelector("#questions");
 let selectButton = document.querySelector("button");
 let questionResult = document.querySelector("#questions");
 
+let quizDone = document.querySelector("#end-screen");
+let askInitials = document.querySelector("#initials");
+let finalScore = document.querySelector("#final-score");
+let submitInitials = document.querySelector("#submit");
+//var doneMode = 'hide';
+
 var timeEl = document.getElementById('time');
 var timeLeft = 30;
     
-var questionNo = 0;
+var questionNo;
 var x = questionNo;
+
+questionNo = localStorage.getItem('question no');
+
 //var x = 0;
 var score = 0;
-var mode = 'hide';
+
+//var quizMode = 'hide';
 
 
 
+//show quiz div content first
+//const showQuiz = questionsShow.setAttribute('class', 'show');
+    
 
-
-//show quiz first
 function showQuiz() {
-    if (mode == 'hide'){
-        mode = 'show';
+    // if (quizMode == 'hide'){
+    //     quizMode = 'show';
         questionsShow.setAttribute('class', 'show');
     }; 
-};
+//};
 
-function hideQuiz() {
-    score++
-    localStorage.setItem('score',score);
-    console.log('score: ', score);
-     questionNo++
-     console.log('question no: ',questionNo);
-    localStorage.setItem('question no', questionNo);
-    if (mode == 'show'){
-        mode = 'hide';
-        questionsShow.setAttribute('class', 'hide');
-    }; 
+// for (i=0;i<answers.length; i++){
+//     starter();
+//     questionNo++;
+//     console.log('x =', x);
+// }
 
-    startButton.disabled = false;
+
+//start quiz
+
+startButton.addEventListener("click", starter);
+
+function starter() {
+
+// startButton.addEventListener('click', function (event){
+//     event.preventDefault();
+    showQuiz();
+    countdown();
+    displayQuestions();
+    listChoices();
+    checkAnswer();
     
+    startButton.disabled = true;
+} 
+    
+function hideQuiz() {
+    // if (quizMode == 'show'){
+    //     quizMode = 'hide';
+        questionsShow.setAttribute('class', 'hide');
+//    }; 
+    startButton.disabled = false;
 };
 
 //timer when start 
@@ -51,45 +78,25 @@ function countdown() {
     
     if(timeLeft <= 0){
         clearInterval(timeInterval);
+    }
 
+    if (timeLeft < 0){
+        clearInterval(timeInterval);
+        allDone();
     }
     }, 1000);
     };
 
 
+function logScore() {
 
 
-//start quiz
+}
 
+    
 
-    for (i=0;i<answers.length; i++){
-        starter();
-        questionNo++;
-        console.log('x =', x);
-    }
-
-    startButton.addEventListener("click", starter);
-
-function starter() {
-
-    // startButton.addEventListener('click', function (event){
-    //     event.preventDefault();
-        showQuiz();
-        countdown();
-        displayQuestions();
-        listChoices();
-        checkAnswer();
-        
-        startButton.disabled = true;
-        } 
-        )    
-    }    
-
-  
 function wrongAnswer() {
-
     timeLeft-10
-
     var message = document.createElement("div");
     message.textContent = "Incorrect... please try again.";
     message.setAttribute('style', 'font-style: italic');
@@ -98,22 +105,18 @@ function wrongAnswer() {
 };
 
 
-// function correctAnswer(){
-
-//     score++
-
-//     hideQuiz();
-
-//     questionNo++
-  
-//     showQuiz();
-
-// };
+function correctAnswer(){
+    score++
+    localStorage.setItem('score',score);
+    questionNo++
+    localStorage.setItem('question no', questionNo);
+    hideQuiz();
+};
 
 
 //determine chosen answer button
 function checkAnswer() {
-choices.addEventListener("click", function(event) {
+    choices.addEventListener("click", function(event) {
     var element = event.target;
     var index = element.getAttribute("data-index");
     var answer = element.textContent;
@@ -121,13 +124,23 @@ choices.addEventListener("click", function(event) {
     //check if chosen button is the correct answer
 
     if (answer === answers[x]){
-        hideQuiz();
+        correctAnswer();
     }
     else wrongAnswer();
        }
     )    
-    
 }
 //console.log(answer);
 
     
+function allDone() {
+//    doneMode = "show";
+    finalScore.textContent = localStorage.getItem(score);
+    quizDone.setAttribute('class', 'show');
+
+    submitInitials.addEventListener("click", function(){
+        setInitials = askInitials.textContent;
+        scoresList.push(setInitials+score);
+    })
+};
+
