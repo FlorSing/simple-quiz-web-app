@@ -11,11 +11,8 @@ var timeLeft = 30;
 var questionNo = 0;
 var x = questionNo;
 
-
 var score = 0;
 var mode = 'hide';
- 
-
 
 function init(){
 
@@ -30,6 +27,10 @@ function showQuiz() {
 };
 
 function hideQuiz() {
+    score++
+    console.log(score);
+    questionNo++
+    console.log(questionNo);
     if (mode == 'show'){
         mode = 'hide';
         questionsShow.setAttribute('class', 'hide');
@@ -62,17 +63,15 @@ startButton.addEventListener('click', function (){
   displayQuestions();
   listChoices();
   checkAnswer();
-  score++;
+  
   startButton.disabled = true;
-  questionNo++;
-
     
 } 
 )    
   
 function wrongAnswer() {
 
-    timeLeft - 10;
+    timeLeft-10
 
     var message = document.createElement("div");
     message.textContent = "Incorrect... please try again.";
@@ -82,20 +81,17 @@ function wrongAnswer() {
 };
 
 
-function correctAnswer(){
+// function correctAnswer(){
 
-    score ++;
-    console.log(score);
+//     score++
 
-    hideQuiz();
+//     hideQuiz();
 
-    questionNo++;
-    console.log(questionNo);
+//     questionNo++
+  
+//     showQuiz();
 
-    showQuiz();
-
-
-}
+// };
 
 
 //determine chosen answer button
@@ -104,22 +100,18 @@ choices.addEventListener("click", function(event) {
     var element = event.target;
     var index = element.getAttribute("data-index");
     var answer = element.textContent;
-    console.log(answer);
 
     //check if chosen button is the correct answer
 
     if (answer === answers[x]){
-        console.log('correct');
         hideQuiz();
     }
     else wrongAnswer();
        }
     )    
-
-
     
 }
-
+//console.log(answer);
 localStorage.setItem('score',score);
-    
+
     
