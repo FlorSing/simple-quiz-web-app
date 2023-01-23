@@ -31,6 +31,13 @@ var score = 0;
 
 
 
+//start quiz
+for (i=0; i<questionsList.length; i++){
+    startButton.addEventListener("click", starter);
+    questionNo++;
+
+}
+
 //show quiz div content first
 //const showQuiz = questionsShow.setAttribute('class', 'show');
     
@@ -48,10 +55,6 @@ function showQuiz() {
 //     console.log('x =', x);
 // }
 
-
-//start quiz
-
-startButton.addEventListener("click", starter);
 
 function starter() {
 
@@ -71,7 +74,7 @@ function hideQuiz() {
     //     quizMode = 'hide';
         questionsShow.setAttribute('class', 'hide');
 //    }; 
-    startButton.disabled = false;
+ //   startButton.disabled = false;
 };
 
 //timer when start 
@@ -109,12 +112,18 @@ function correctAnswer(){
     score++
     localStorage.setItem('score',score);
     questionNo++
-//    localStorage.setItem('question no', questionNo);
+    hideQuiz();
+    //    localStorage.setItem('question no', questionNo);
     //hideQuiz();
-    questionTitle.textContent = "";
+    // questionTitle.textContent = "";
     choices.children[0].remove();
     choices.children[0].remove();
     choices.children[0].remove();
+    // showQuiz();
+    // displayQuestions();
+    // listChoices();
+
+
 };
 
 //determine chosen answer button
@@ -126,11 +135,15 @@ function checkAnswer() {
 
     //check if chosen button is the correct answer
     if (answer === answers[x]){
+        multipleChoice.splice(0,3);
+        questionTitle.textContent = "";
         correctAnswer();
+ //       starter();
     }
     else wrongAnswer();
     }
     )    
+
 }   
 //console.log(answer);
 
@@ -150,7 +163,7 @@ function allDone() {
         
     })
 
-    feedback.setAttribute('class', 'feeback show');
+//    feedback.setAttribute('class', 'feeback show');
 };
 
 

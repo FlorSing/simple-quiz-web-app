@@ -26,9 +26,9 @@ const answers = [
 var questionNo = 0
 var x = questionNo;
 
-//need to display questions and multiple choice answers in sequence after every item
+//***? how ? - need to display questions and multiple choice answers in sequence after every item ***
 
-
+var multipleChoice = [];
 
 //display questions
 function displayQuestions() {
@@ -37,12 +37,17 @@ function displayQuestions() {
 
 //display multiple choice answers
 function listChoices(){
+  multipleChoice.innerHTML = "";
+
   for (i=0; i<questionsList[x][1].length; i++){
-      var selectButton = document.createElement("button");
-      selectButton.textContent = questionsList[x][1][i]
-      selectButton.setAttribute("data-index", i);
-      selectButton.setAttribute("id", "ansButton");
-      choices.appendChild(selectButton); 
+    var text = questionsList[x][1][i];
+    multipleChoice.push(text);
+
+    var selectButton = document.createElement("button");
+    selectButton.textContent = questionsList[x][1][i];
+    selectButton.setAttribute("data-index", i);
+    selectButton.setAttribute("id", "ansButton");
+    choices.appendChild(selectButton); 
     };
 };
 
