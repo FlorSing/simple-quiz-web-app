@@ -1,4 +1,4 @@
-# simple-quiz-web-app
+# simple-web-quiz-app-prototype
 web app featuring a simple online quiz
 
 Hi. 
