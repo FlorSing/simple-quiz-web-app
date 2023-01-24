@@ -26,6 +26,9 @@ https://github.com/FlorSing/simple-quiz-web-app
 
 The link to the web page deployment is:
 
+https://florsing.github.io/web-quiz-app-prototype/
+
+
 
 
 Thank you.
