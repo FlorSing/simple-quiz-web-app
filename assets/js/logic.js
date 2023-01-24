@@ -197,6 +197,9 @@ function checkAnswer() {
     
 function allDone() {
 //    doneMode = "show";
+    hideQuiz();
+    startButton.disabled = true;
+
     var lastScore = localStorage.getItem('score');
 
     finalScore.textContent = lastScore;
