@@ -21,43 +21,33 @@ const answers = [
     'A: JS Arrays', 
 ];
 
-
-//questionNo = localStorage.getItem('question no');
-var questionNo = 0
-var x = questionNo;
+//var x = 0;
+questionNo = localStorage.getItem('question no');
+//var questionNo = 0
+// var x = questionNo;
 
 //***? how ? - need to display questions and multiple choice answers in sequence after every item ***
 
-var multipleChoice = [];
+//var multipleChoice = [];
 
 //display questions
 function displayQuestions() {
-  questionTitle.textContent = questionsList[x][0];
+  questionTitle.textContent = questionsList[questionNo][0];
 };
 
 //display multiple choice answers
 function listChoices(){
-  multipleChoice.innerHTML = "";
+//  multipleChoice.innerHTML = "";
 
-  for (i=0; i<questionsList[x][1].length; i++){
-    var text = questionsList[x][1][i];
-    multipleChoice.push(text);
+   for (i=0; i<questionsList[questionNo][1].length; i++){
+  //   var text = questionsList[x][1][i];
+  //   multipleChoice.push(text);
 
     var selectButton = document.createElement("button");
-    selectButton.textContent = questionsList[x][1][i];
+    selectButton.textContent = questionsList[questionNo][1][i];
     selectButton.setAttribute("data-index", i);
     selectButton.setAttribute("id", "ansButton");
-    choices.appendChild(selectButton); 
-    };
-};
-
-
-
-
-
-
-
-
-
-
-
+    choices.appendChild(selectButton);
+    
+   }
+  };

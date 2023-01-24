@@ -14,10 +14,10 @@ let feedback = document.querySelector("#feedback");
 
 //var doneMode = 'hide';
 
-var timeEl = document.getElementById('time');
-var timeLeft = 10;
+var timer = document.getElementById('time');
+var timeLeft = 80;
     
-var questionNo=0;
+var questionNo =0;
 //localStorage.setItem('question no', questionNo);
 //var x = questionNo;
 
@@ -27,27 +27,32 @@ var questionNo=0;
 
 var score = 0;
 
-//var quizMode = 'hide';
+var quizMode = 'hide';
 
 
 
 //start quiz
-for (i=0; i<questionsList.length; i++){
-    startButton.addEventListener("click", starter);
-    questionNo++;
+//for (i=0; i<8; i++){
+    
+//    questionNo = i;   
+    startButton.addEventListener("click", starter)
 
-}
+
+//  
+//    });
+
+
 
 //show quiz div content first
 //const showQuiz = questionsShow.setAttribute('class', 'show');
     
 
 function showQuiz() {
-    // if (quizMode == 'hide'){
-    //     quizMode = 'show';
+     if (quizMode == 'hide'){
+         quizMode = 'show';
         questionsShow.setAttribute('class', 'show');
     }; 
-//};
+};
 
 // for (i=0;i<answers.length; i++){
 //     starter();
@@ -66,14 +71,13 @@ function starter() {
     listChoices();
     checkAnswer();
     
-    startButton.disabled = true;
 } 
     
 function hideQuiz() {
-    // if (quizMode == 'show'){
-    //     quizMode = 'hide';
+     if (quizMode == 'show'){
+         quizMode = 'hide';
         questionsShow.setAttribute('class', 'hide');
-//    }; 
+    }; 
  //   startButton.disabled = false;
 };
 
@@ -82,7 +86,8 @@ function hideQuiz() {
 function countdown() {
     var timeInterval = setInterval(function () {
       timeLeft--;
-      timeEl.textContent = timeLeft;
+      timer.textContent = timeLeft;
+//      localStorage.setItem("timerStat",timeLeft)
     
     if(timeLeft <= 0){
         clearInterval(timeInterval);
@@ -99,11 +104,15 @@ function countdown() {
 
 
 function wrongAnswer() {
-    timeLeft-10
+//    timeUpdate = localStorage.getItem("timeStat")
+    timeLeft-10;
+    timer.textContent - timeLeft;
     var message = document.createElement("div");
     message.textContent = "Incorrect... please try again.";
     message.setAttribute('style', 'font-style: italic');
     questionResult.appendChild(message);
+
+
     
 };
 
@@ -112,13 +121,12 @@ function correctAnswer(){
     score++
     localStorage.setItem('score',score);
     questionNo++
+    localStorage.setItem('question no', questionNo);
+    questionTitle.textContent = "";
+    choices.children[0].remove();
+    choices.children[0].remove();
+    choices.children[0].remove();
     hideQuiz();
-    //    localStorage.setItem('question no', questionNo);
-    //hideQuiz();
-    // questionTitle.textContent = "";
-    choices.children[0].remove();
-    choices.children[0].remove();
-    choices.children[0].remove();
     // showQuiz();
     // displayQuestions();
     // listChoices();
@@ -134,10 +142,15 @@ function checkAnswer() {
     var answer = element.textContent;
 
     //check if chosen button is the correct answer
-    if (answer === answers[x]){
-        multipleChoice.splice(0,3);
-        questionTitle.textContent = "";
-        correctAnswer();
+    if (answer === answers[questionNo]){
+//        multipleChoice.splice(0,3);
+        // questionTitle.textContent = "";
+        // choices.children[0].remove();
+        // choices.children[0].remove();
+        // choices.children[0].remove(); 
+ 
+              correctAnswer();
+
  //       starter();
     }
     else wrongAnswer();
