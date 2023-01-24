@@ -3,10 +3,9 @@ web app featuring a simple online quiz
 
 Hi. 
 
-This is a simple web app featuring an online quiz, powered by JavaScript which dynamically updates the HTML and CSS. 
+This is a prototype of a simple web app featuring an online quiz, powered by JavaScript which dynamically updates the HTML and CSS. It is a series of multiple-choice questions. The current score as well as the highest scores will be stored.
 
-It is a series of multiple-choice questions. 
-Your current score as well as the highest scores will be stored.
+This is a (shomewhat) working version which shows basic functionality in terms of showing the questions and multiple choice asnwers. It forwards to the next set of questions and asnwers, but shows a glitch in setting the correct time and feedback display, which is still being worked on.  Improvements are underway and repository will be updated real time. 
 
 
 Here is a sample view of the application:
