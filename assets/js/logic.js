@@ -106,16 +106,37 @@ function countdown() {
 function wrongAnswer() {
 //    timeUpdate = localStorage.getItem("timeStat")
     timeLeft-10;
-    timer.textContent - timeLeft;
-    var message = document.createElement("div");
-    message.textContent = "Incorrect... please try again.";
-    message.setAttribute('style', 'font-style: italic');
-    questionResult.appendChild(message);
-
-
+    timer.textContent = timeLeft;
+    // var message = document.createElement("div");
+    // message.textContent = "Incorrect... please try again.";
+    // message.setAttribute('style', 'font-style: italic');
+    // questionResult.appendChild(message);
+    feedbackWrong();
+    // feedback.textContent = "Incorrect... please try again.";
+    // feedback.setAttribute('class','feedback show');
     
 };
 
+function feedbackWrong(){
+    feedback.setAttribute('class','feedback show');
+    
+    var feebackMessage = "Incorrect... please try again.";
+    feedback.textContent = feebackMessage;
+    
+//    feedback.setAttribute('class','feedback hide');
+
+    };
+    
+function feedbackRight(){
+    feedback.setAttribute('class','feedback show');
+    
+    var feebackMessage = "Correct.";
+    feedback.textContent = feebackMessage;
+    
+//    feedback.setAttribute('class','feedback hide');
+
+    };
+    
 
 function correctAnswer(){
     score++
@@ -127,12 +148,14 @@ function correctAnswer(){
     choices.children[0].remove();
     choices.children[0].remove();
     hideQuiz();
+    feedbackRight();
     // showQuiz();
     // displayQuestions();
     // listChoices();
 
 
 };
+
 
 //determine chosen answer button
 function checkAnswer() {
@@ -141,6 +164,10 @@ function checkAnswer() {
     var index = element.getAttribute("data-index");
     var answer = element.textContent;
 
+    console.log(index);
+ //   console.log(answer);
+ //   console.log(answers[questionNo]);
+    
     //check if chosen button is the correct answer
     if (answer === answers[questionNo]){
 //        multipleChoice.splice(0,3);
