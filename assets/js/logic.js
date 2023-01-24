@@ -69,10 +69,13 @@ function starter() {
     countdown();
     displayQuestions();
     listChoices();
-    checkAnswer();
+ //   checkAnswer();
     
-} 
-    
+}
+
+checkAnswer();
+
+
 function hideQuiz() {
      if (quizMode == 'show'){
          quizMode = 'hide';
@@ -114,6 +117,10 @@ function wrongAnswer() {
     feedbackWrong();
     // feedback.textContent = "Incorrect... please try again.";
     // feedback.setAttribute('class','feedback show');
+    questionTitle.textContent = "";
+    choices.children[0].remove();
+    choices.children[0].remove();
+    choices.children[0].remove();
     
 };
 
@@ -147,7 +154,7 @@ function correctAnswer(){
     choices.children[0].remove();
     choices.children[0].remove();
     choices.children[0].remove();
-    hideQuiz();
+ //   hideQuiz();
     feedbackRight();
     // showQuiz();
     // displayQuestions();
