@@ -15,7 +15,7 @@ let feedback = document.querySelector("#feedback");
 //var doneMode = 'hide';
 
 var timer = document.getElementById('time');
-var timeLeft = 80;
+var timeLeft = 50;
     
 var questionNo =0;
 //localStorage.setItem('question no', questionNo);
@@ -67,12 +67,13 @@ function starter() {
 //     event.preventDefault();
     showQuiz();
     countdown();
-    displayQuestions();
-    listChoices();
+    // displayQuestions();
+    // listChoices();
  //   checkAnswer();
     
 }
-
+    displayQuestions();
+    listChoices();
 checkAnswer();
 
 
@@ -122,6 +123,8 @@ function wrongAnswer() {
     choices.children[0].remove();
     choices.children[0].remove();
     
+    displayQuestions();
+    //listChoices();
 };
 
 function feedbackWrong(){
@@ -131,7 +134,8 @@ function feedbackWrong(){
     feedback.textContent = feebackMessage;
     
 //    feedback.setAttribute('class','feedback hide');
-
+displayQuestions();
+listChoices();
     };
     
 function feedbackRight(){
@@ -157,8 +161,8 @@ function correctAnswer(){
  //   hideQuiz();
     feedbackRight();
     // showQuiz();
-    // displayQuestions();
-    // listChoices();
+    displayQuestions();
+    listChoices();
 
 
 };
@@ -171,7 +175,7 @@ function checkAnswer() {
     var index = element.getAttribute("data-index");
     var answer = element.textContent;
 
-    console.log(index);
+ //   console.log(index);
  //   console.log(answer);
  //   console.log(answers[questionNo]);
     
@@ -190,6 +194,9 @@ function checkAnswer() {
     else wrongAnswer();
     }
     )    
+
+   // displayQuestions();
+    //listChoices();
 
 }   
 //console.log(answer);

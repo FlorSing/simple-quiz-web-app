@@ -1,12 +1,19 @@
 //create list of high scores
 var clearScore = document.querySelector("#clear");
 var scoreElement =  document.getElementById('highscores');
+
 var lastScore = localStorage.getItem('score');
 var initials = localStorage.getItem('initials');
+var scoresListEntry = [initials+": "+lastScore];
 
 var scoresList = [];
-var scoresListEntry = [initials+": "+lastScore];
+
+// localStorage.setItem('scoreEntry', scoresListEntry);
+// var newScore = localStorage.getItem('scoreEntry');
+
 scoresList.push(scoresListEntry);
+
+console.log('scoresList: ', scoresList);
 
 
 function logScore(){
